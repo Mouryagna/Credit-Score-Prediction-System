@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Credit Score Prediction</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#e4e4e4;
+margin:0;
+padding:0;
+}
+
+.container{
+width:800px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-top:10px;
+font-weight:bold;
+}
+
+input,select{
+width:100%;
+padding:8px;
+margin-top:5px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:12px;
+background:#2c7be5;
+color:white;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1a5edb;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:#e8f5e9;
+border-radius:5px;
+text-align:center;
+font-size:18px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>Credit Score Predictor</h1>
+
+<form action="/predictdata" method="post">
+
+<label>Month</label>
+<input type="number" name="Month">
+
+<label>Age</label>
+<input type="number" name="Age">
+
+<label>Num Bank Accounts</label>
+<input type="number" name="Num_Bank_Accounts">
+
+<label>Num Credit Card</label>
+<input type="number" name="Num_Credit_Card">
+
+<label>Interest Rate</label>
+<input type="number" step="any" name="Interest_Rate">
+
+<label>Delay from Due Date</label>
+<input type="number" name="Delay_from_due_date">
+
+<label>Num of Delayed Payment</label>
+<input type="number" name="Num_of_Delayed_Payment">
+
+<label>Changed Credit Limit</label>
+<input type="number" step="any" name="Changed_Credit_Limit">
+
+<label>Num Credit Inquiries</label>
+<input type="number" name="Num_Credit_Inquiries">
+
+<label>Credit Utilization Ratio</label>
+<input type="number" step="any" name="Credit_Utilization_Ratio">
+
+<label>Monthly Balance</label>
+<input type="number" step="any" name="Monthly_Balance">
+
+<label>Credit History Age (months)</label>
+<input type="number" name="Credit_History_Age_months">
+
+<label>Investment Ratio</label>
+<input type="number" step="any" name="Investment_Ratio">
+
+<label>Num Loan Types</label>
+<input type="number" name="Num_Loan_Types">
+
+
+<label>Has Mortgage (0 or 1)</label>
+<input type="number" name="Has_Mortgage">
+
+<label>Has Student Loan (0 or 1)</label>
+<input type="number" name="Has_Student">
+
+<label>Has Personal Loan (0 or 1)</label>
+<input type="number" name="Has_Personal">
+
+<label>Has Auto Loan (0 or 1)</label>
+<input type="number" name="Has_Auto">
+
+<label>Has Debt Consolidation (0 or 1)</label>
+<input type="number" name="Has_Debt_Consolidation">
+
+<label>Has Credit Builder (0 or 1)</label>
+<input type="number" name="Has_Credit_Builder">
+
+
+<label>Debt to Income</label>
+<input type="number" step="any" name="Debt_to_Income">
+
+<label>EMI to Income</label>
+<input type="number" step="any" name="EMI_to_Income">
+
+<label>Delay Intensity</label>
+<input type="number" step="any" name="Delay_Intensity">
+
+<label>Utilization Delay</label>
+<input type="number" step="any" name="Utilization_Delay">
+
+<label>Debt per Loan</label>
+<input type="number" step="any" name="Debt_per_Loan">
+
+
+<label>Occupation</label>
+<select name="Occupation">
+<option>Scientist</option>
+<option>Teacher</option>
+<option>Engineer</option>
+<option>Entrepreneur</option>
+<option>Developer</option>
+<option>Lawyer</option>
+<option>Media_Manager</option>
+<option>Doctor</option>
+<option>Journalist</option>
+<option>Manager</option>
+<option>Accountant</option>
+<option>Musician</option>
+<option>Mechanic</option>
+<option>Writer</option>
+<option>Architect</option>
+</select>
+
+
+<label>Credit Mix</label>
+<select name="Credit_Mix">
+<option>Bad</option>
+<option>Standard</option>
+<option>Good</option>
+</select>
+
+
+<label>Payment of Minimum Amount</label>
+<select name="Payment_of_Min_Amount">
+<option>No</option>
+<option>Yes</option>
+</select>
+
+
+<label>Spending Level</label>
+<select name="Spending_Level">
+<option>Low</option>
+<option>High</option>
+</select>
+
+
+<label>Payment Value Level</label>
+<select name="Payment_Value_Level">
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+</select>
+
+
+<button type="submit">
+Predict Credit Score
+</button>
+
+</form>
+
+
+{% if results %}
+
+<div class="result">
+
+Prediction : {{ results }}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
